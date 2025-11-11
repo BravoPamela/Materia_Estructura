@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura de Datos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #3b82f6;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Contenedor de secciones */
+    main {
+      padding: 20px;
+      background-color: white;
+      max-width: 900px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Mostrar solo la pestaña seleccionada */
+    input[type="radio"] {
+      display: none;
+    }
+
+    input#unidad1:checked ~ main section.unidad1,
+    input#unidad2:checked ~ main section.unidad2,
+    input#unidad3:checked ~ main section.unidad3,
+    input#unidad4:checked ~ main section.unidad4 {
+      display: block;
+    }
+
+    /* Vincular labels (botones del menú) con inputs */
+    label {
+      cursor: pointer;
+    }
+
+    h2 {
+      color: #1e40af;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Asignatura: Estructura de Datos</h1>
+    <p>Basado en el sílabo oficial</p>
+  </header>
+
+  <!-- Radio buttons ocultos para controlar las secciones -->
+  <input type="radio" name="menu" id="unidad1" checked>
+  <input type="radio" name="menu" id="unidad2">
+  <input type="radio" name="menu" id="unidad3">
+  <input type="radio" name="menu" id="unidad4">
+
+  <nav>
+    <label for="unidad1">Unidad I</label>
+    <label for="unidad2">Unidad II</label>
+    <label for="unidad3">Unidad III</label>
+    <label for="unidad4">Unidad IV</label>
+  </nav>
+
+  <main>
+    <section class="unidad1">
+      <h2>Unidad I: Introducción a las Estructuras de Datos</h2>
+      <ul>
+        <li>Concepto de algoritmo y su importancia.</li>
+        <li>Representación y tipos de datos.</li>
+        <li>Clasificación de estructuras de datos.</li>
+        <li>Análisis de eficiencia de algoritmos.</li>
+      </ul>
+    </section>
+
+    <section class="unidad2">
+      <h2>Unidad II: Estructuras de Datos Lineales</h2>
+
+      <h3>1. Pila (Stack)</h3>
+      <ul>
+        <li>Concepto: estructura LIFO (Last In, First Out).</li>
+        <li>Operaciones: Push, Pop, Peek, isEmpty, isFull.</li>
+        <li>Aplicaciones: recursión, deshacer/rehacer, backtracking.</li>
+      </ul>
+
+      <h3>2. Cola (Queue)</h3>
+      <ul>
+        <li>Concepto: estructura FIFO (First In, First Out).</li>
+        <li>Tipos: simple, circular, de prioridad, doble (deque).</li>
+        <li>Aplicaciones: atención al cliente, tareas, triage hospitalario.</li>
+      </ul>
+
+      <h3>3. Listas Enlazadas (Linked Lists)</h3>
+      <ul>
+        <li>Definición: nodos con dato y enlace al siguiente.</li>
+        <li>Tipos: simple, doble, circular, doble circular, multienlazada, skip list.</li>
+        <li>Operaciones: inserción, eliminación, búsqueda, recorrido.</li>
+        <li>Aplicaciones: historial de navegación, reproductores, bases de datos.</li>
+      </ul>
+    </section>
+
+    <section class="unidad3">
+      <h2>Unidad III: Estructuras No Lineales</h2>
+      <ul>
+        <li>Árboles: binarios, AVL, B, B+.</li>
+        <li>Grafos: dirigidos y no dirigidos.</li>
+        <li>Recorridos: preorden, inorden, postorden.</li>
+        <li>Aplicaciones en jerarquías y redes.</li>
+      </ul>
+    </section>
+
+    <section class="unidad4">
+      <h2>Unidad IV: Archivos y Gestión de Memoria</h2>
+      <ul>
+        <li>Archivos secuenciales, directos e indexados.</li>
+        <li>Operaciones básicas: apertura, lectura, escritura, cierre.</li>
+        <li>Manejo de punteros y memoria dinámica.</li>
+        <li>Buenas prácticas de almacenamiento.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 | Estructura de Datos | Desarrollado por Pamela
+  </footer>
+
+</body>
+</html>

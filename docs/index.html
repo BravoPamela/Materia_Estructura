@@ -1,178 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estructura de Datos</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estructura de Datos</title>
+
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f5f9;
-      margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        margin: 0;
     }
 
     header {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 20px;
+        background-color: #b91c1c;
+        color: white;
+        text-align: center;
+        padding: 20px;
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      background-color: #3b82f6;
-      flex-wrap: wrap;
+        background-color: #7f1d1d;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
-    nav a {
-      color: white;
-      padding: 15px 25px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      transition: background-color 0.3s;
+    nav label {
+        padding: 15px 25px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
     }
 
-    nav a:hover {
-      background-color: #1d4ed8;
+    nav label:hover {
+        background-color: #b91c1c;
     }
 
-    /* Contenedor de secciones */
     main {
-      padding: 20px;
-      background-color: white;
-      max-width: 900px;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        max-width: 900px;
+        margin: 20px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid #b91c1c;
     }
 
-    section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
+    /* Ocultar radios */
+    input[type="radio"] { display: none; }
+
+    section { display: none; }
+
+    input#u1:checked ~ main .u1,
+    input#u2:checked ~ main .u2,
+    input#u3:checked ~ main .u3,
+    input#u4:checked ~ main .u4 {
+        display: block;
+        animation: fade 0.4s ease-in-out;
     }
 
-    /* Mostrar solo la pestaña seleccionada */
-    input[type="radio"] {
-      display: none;
+    @keyframes fade {
+        from { opacity: 0; } to { opacity: 1; }
     }
 
-    input#unidad1:checked ~ main section.unidad1,
-    input#unidad2:checked ~ main section.unidad2,
-    input#unidad3:checked ~ main section.unidad3,
-    input#unidad4:checked ~ main section.unidad4 {
-      display: block;
+    h2 { color: #7f1d1d; }
+
+    .tema {
+        border: 2px solid #b91c1c;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background: #fee2e2;
     }
 
-    /* Vincular labels (botones del menú) con inputs */
-    label {
-      cursor: pointer;
+    .tema input[type="text"] {
+        width: 80%;
+        padding: 7px;
+        border: 1px solid #7f1d1d;
+        border-radius: 5px;
     }
 
-    h2 {
-      color: #1e40af;
+    .tema input[type="submit"] {
+        padding: 7px 15px;
+        border: none;
+        background: #b91c1c;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
-    ul {
-      line-height: 1.8;
+    .resumen {
+        background: white;
+        border-left: 4px solid #b91c1c;
+        margin-top: 10px;
+        padding: 10px;
     }
 
     footer {
-      text-align: center;
-      background-color: #1e3a8a;
-      color: white;
-      padding: 15px;
-      margin-top: 30px;
+        text-align: center;
+        background: #7f1d1d;
+        color: white;
+        padding: 15px;
+        margin-top: 30px;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Asignatura: Estructura de Datos</h1>
-    <p>Basado en el sílabo oficial</p>
-  </header>
+<header>
+    <h1>Estructura de Datos</h1>
+    <p>Versión Blanco y Rojo</p>
+</header>
 
-  <!-- Radio buttons ocultos para controlar las secciones -->
-  <input type="radio" name="menu" id="unidad1" checked>
-  <input type="radio" name="menu" id="unidad2">
-  <input type="radio" name="menu" id="unidad3">
-  <input type="radio" name="menu" id="unidad4">
+<!-- Radios -->
+<input type="radio" name="menu" id="u1" checked>
+<input type="radio" name="menu" id="u2">
+<input type="radio" name="menu" id="u3">
+<input type="radio" name="menu" id="u4">
 
-  <nav>
-    <label for="unidad1">Unidad I</label>
-    <label for="unidad2">Unidad II</label>
-    <label for="unidad3">Unidad III</label>
-    <label for="unidad4">Unidad IV</label>
-  </nav>
+<nav>
+    <label for="u1">Unidad I</label>
+    <label for="u2">Unidad II</label>
+    <label for="u3">Unidad III</label>
+    <label for="u4">Unidad IV</label>
+</nav>
 
-  <main>
-    <section class="unidad1">
-      <h2>Unidad I: Introducción a las Estructuras de Datos</h2>
-      <ul>
-        <li>Concepto de algoritmo y su importancia.</li>
-        <li>Representación y tipos de datos.</li>
-        <li>Clasificación de estructuras de datos.</li>
-        <li>Análisis de eficiencia de algoritmos.</li>
-      </ul>
-    </section>
+<main>
 
-    <section class="unidad2">
-      <h2>Unidad II: Estructuras de Datos Lineales</h2>
+<!-- UNIDAD I -->
+<section class="u1">
+    <h2>Unidad I: Introducción a las Estructuras de Datos</h2>
 
-      <h3>1. Pila (Stack)</h3>
-      <ul>
-        <li>Concepto: estructura LIFO (Last In, First Out).</li>
-        <li>Operaciones: Push, Pop, Peek, isEmpty, isFull.</li>
-        <li>Aplicaciones: recursión, deshacer/rehacer, backtracking.</li>
-      </ul>
+    <div class="tema">
+        <h3>Conceptos Generales</h3>
+        <form>
+            <p><b>Biblioteca</b></p>
+            <input type="text" value="https://github.com/BravoPamela/Taller-ArraysDinamicos_Registros.git">
+            <a href="https://github.com/BravoPamela/Taller-ArraysDinamicos_Registros.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Biblioteca.png" alt="UML Biblioteca">
+        </div>
+        <form>
+            <p><b>Carrito de Compras</b></p>
+            <input type="text" value="https://github.com/xaviertoala/CarritoComprasArrayList.git">
+            <a href="https://github.com/xaviertoala/CarritoComprasArrayList.git" target="_blank">Abrir enlace</a>
+        </form>
+         <div class="resumen">
+             <img src="Imag/Carrito.png" alt="UML Carrito">
+        </div>
+        <div class="resumen">
+            Esta unidad explica qué son los algoritmos, cómo se representan los datos y por qué es
+            importante usar estructuras eficientes para optimizar tiempo y memoria.
+        </div>
+    </div>
+</section>
 
-      <h3>2. Cola (Queue)</h3>
-      <ul>
-        <li>Concepto: estructura FIFO (First In, First Out).</li>
-        <li>Tipos: simple, circular, de prioridad, doble (deque).</li>
-        <li>Aplicaciones: atención al cliente, tareas, triage hospitalario.</li>
-      </ul>
+<!-- UNIDAD II -->
+<section class="u2">
+    <h2>Unidad II: Estructuras de Datos Lineales</h2>
 
-      <h3>3. Listas Enlazadas (Linked Lists)</h3>
-      <ul>
-        <li>Definición: nodos con dato y enlace al siguiente.</li>
-        <li>Tipos: simple, doble, circular, doble circular, multienlazada, skip list.</li>
-        <li>Operaciones: inserción, eliminación, búsqueda, recorrido.</li>
-        <li>Aplicaciones: historial de navegación, reproductores, bases de datos.</li>
-      </ul>
-    </section>
+    <!-- PILAS -->
+    <div class="tema">
+        <h3>Pilas (Stacks)</h3>
+        <form>
+            <input type="text" value="https://github.com/SanmiguelAyleen/NavegadorWeb.git">
+            <a href="https://github.com/SanmiguelAyleen/NavegadorWeb.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Navegador.jpeg" alt="UML Navegador">
+        </div>
+        <div class="resumen">
+            Las pilas funcionan con el principio LIFO. Útiles para recursión, backtracking y sistemas de deshacer. 
+            <ul>Tiene estas operaciones: Push (Agregar), Pop (Eliminar), Peek (Retornar el ultimo elemento), isEmpty (Saber si esta vacia), isFull (Saber si esta llena)</ul>
+        </div>
+    </div>
 
-    <section class="unidad3">
-      <h2>Unidad III: Estructuras No Lineales</h2>
-      <ul>
-        <li>Árboles: binarios, AVL, B, B+.</li>
-        <li>Grafos: dirigidos y no dirigidos.</li>
-        <li>Recorridos: preorden, inorden, postorden.</li>
-        <li>Aplicaciones en jerarquías y redes.</li>
-      </ul>
-    </section>
+    <!-- COLAS -->
+    <div class="tema">
+        <h3>Colas (Simple)</h3>
+        <form>
+            <input type="text" value="https://github.com/xaviertoala/ExampleQueueXT.git">
+            <a href="https://github.com/xaviertoala/ExampleQueueXT.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Cola Simple.png" alt="UML Colas Simples">
+        </div>
+        <div class="resumen">
+            Las colas siguen el principio FIFO. Se usan en sistemas por turnos, procesos y simulaciones.
+            <ul>Tiene estas operaciones: Enqueue (Encolar), Dequeue (Desencolar), Peek (Retornar el ultimo elemento), isEmpty (Saber si esta vacia), isFull (Saber si esta llena)</ul>
+        </div>
+    </div>
+    <div class="tema">
+        <h3>Colas (Circular)</h3>
+        <form>
+            <input type="text" value="https://github.com/licetdev/sistema-cliente-cola-circular.git">
+            <a href="https://github.com/licetdev/sistema-cliente-cola-circular.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Cola Circular.jpeg" alt="UML Colas Circular">
+        </div>
+        <div class="resumen">
+            Las colas siguen el principio FIFO. Se usan en sistemas por turnos, procesos y simulaciones.
+            <ul>Tiene estas operaciones: Enqueue (Encolar), Dequeue (Desencolar), Peek (Retornar el ultimo elemento), isEmpty (Saber si esta vacia), isFull (Saber si esta llena)</ul>
+        </div>
+    </div>
+    <div class="tema">
+        <h3>Colas (Priority)</h3>
+        <form>
+            <input type="text" value="https://github.com/Nicole1611/ColaPrioridad.git">
+            <a href="https://github.com/Nicole1611/ColaPrioridad.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Cola Prioridad.jpeg" alt="UML Colas Priority">
+        </div>
+        <div class="resumen">
+            Las colas siguen el principio FIFO. Se usan en sistemas por turnos, procesos y simulaciones.
+            <ul>Tiene estas operaciones: Enqueue (Encolar), Dequeue (Desencolar), Peek (Retornar el ultimo elemento), isEmpty (Saber si esta vacia), isFull (Saber si esta llena)</ul>
+        </div>
+    </div>
+    <div class="tema">
+        <h3>Colas (Double)</h3>
+        <form>
+            <input type="text" value="https://github.com/xaviertoala/AplicacionDoble-Queue.git">
+            <a href="https://github.com/xaviertoala/AplicacionDoble-Queue.git" target="_blank">Abrir enlace</a>
+        </form>
+        <div class="resumen">
+             <img src="Imag/Cola Doble.png" alt="UML Colas Double">
+        </div>
+        <div class="resumen">
+            Las colas siguen el principio FIFO. Se usan en sistemas por turnos, procesos y simulaciones.
+            <ul>Tiene estas operaciones: Enqueue (Encolar), Dequeue (Desencolar), Peek (Retornar el ultimo elemento), isEmpty (Saber si esta vacia), isFull (Saber si esta llena)</ul>
+        </div>
+    </div>
 
-    <section class="unidad4">
-      <h2>Unidad IV: Archivos y Gestión de Memoria</h2>
-      <ul>
-        <li>Archivos secuenciales, directos e indexados.</li>
-        <li>Operaciones básicas: apertura, lectura, escritura, cierre.</li>
-        <li>Manejo de punteros y memoria dinámica.</li>
-        <li>Buenas prácticas de almacenamiento.</li>
-      </ul>
-    </section>
-  </main>
 
-  <footer>
+    <!-- LISTAS -->
+    <div class="tema">
+        <h3>Listas Enlazadas</h3>
+        <form>
+            <input type="text" placeholder="Sube un enlace de listas...">
+        </form>
+        <div class="resumen">
+            Las listas enlazadas permiten almacenar datos dinámicamente mediante nodos con enlaces flexibles.
+        </div>
+    </div>
+
+</section>
+
+<!-- UNIDAD III -->
+<section class="u3">
+    <h2>Unidad III: Estructuras No Lineales</h2>
+
+    <!-- ARBOLES -->
+    <div class="tema">
+        <h3>Árboles</h3>
+        <form>
+            <input type="text" placeholder="Sube un enlace de árboles...">
+        </form>
+        <div class="resumen">
+            Los árboles representan jerarquías. Se usan en búsquedas, ordenamientos y sistemas de archivos.
+        </div>
+    </div>
+
+    <!-- GRAFOS -->
+    <div class="tema">
+        <h3>Grafos</h3>
+        <form>
+            <input type="text" placeholder="Sube un enlace de grafos...">
+        </form>
+        <div class="resumen">
+            Los grafos modelan conexiones entre nodos. Se aplican en redes, rutas, mapas y análisis social.
+        </div>
+    </div>
+
+</section>
+
+<!-- UNIDAD IV -->
+<section class="u4">
+    <h2>Unidad IV: Archivos y Memoria Dinámica</h2>
+
+    <!-- ARCHIVOS -->
+    <div class="tema">
+        <h3>Archivos</h3>
+        <form>
+            <input type="text" placeholder="Sube un enlace de archivos...">
+        </form>
+        <div class="resumen">
+            Los archivos permiten almacenamiento permanente organizado en formatos secuenciales o indexados.
+        </div>
+    </div>
+
+    <!-- MEMORIA DINÁMICA -->
+    <div class="tema">
+        <h3>Memoria Dinámica</h3>
+        <form>
+            <input type="text" placeholder="Sube un enlace de memoria dinámica...">
+        </form>
+        <div class="resumen">
+            Permite asignar y liberar memoria durante la ejecución, esencial para listas, árboles y grafos.
+        </div>
+    </div>
+
+</section>
+
+</main>
+
+<footer>
     © 2025 | Estructura de Datos | Desarrollado por Pamela
-  </footer>
+</footer>
 
 </body>
 </html>
+
+
+
+
